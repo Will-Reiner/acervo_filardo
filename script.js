@@ -54,7 +54,7 @@ tracks.forEach(([title, id], index) => {
     <span class="track-number">${String(index + 1).padStart(2, "0")}</span>
     <div>
       <div class="track-title">${title}</div>
-      <a class="drive-link" href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener">abrir no Google Drive</a>
+    
     </div>
     <button class="listen-button" type="button" aria-label="Ouvir ${title}">ouvir</button>
   `;
