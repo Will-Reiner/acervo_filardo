@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Acervo musical de Sebastião Mateus Filardo.">
+  <title>Acervo Musical - Sebastião Mateus Filardo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="book-shell">
+    <aside class="book-cover" aria-label="Capa do acervo">
+      <div class="cover-mark">AM</div>
+      <p class="cover-kicker">Coleção particular · 2024</p>
+      <h1>Acervo<br>Musical</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-name">Sebastião<br>Mateus Filardo</p>
+      <p class="cover-note">Memórias que continuam tocando.</p>
+      <span class="cover-number">01</span>
+    </aside>
+
+    <section class="book-content">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Caderno de escuta</p>
+          <h2>As músicas dele</h2>
+        </div>
+        <p class="page-count"><span id="track-count">11</span> registros</p>
+      </header>
+
+      <div class="intro">
+        <p>Uma seleção de canções e hinos guardados na história de Sebastião. Escolha uma faixa para ouvir e deixe a lembrança encontrar seu próprio ritmo.</p>
+      </div>
+
+      <section class="playlist" aria-label="Lista de músicas">
+        <div class="playlist-heading">
+          <span>Faixa</span>
+          <span>Escutar</span>
+        </div>
+        <ol id="track-list"></ol>
+      </section>
+
+      <footer class="page-footer">
+        <span>Acervo Musical · Sebastião Mateus Filardo</span>
+        <span>Com carinho, para ouvir e lembrar</span>
+      </footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
