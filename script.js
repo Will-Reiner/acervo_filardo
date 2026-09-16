@@ -14,6 +14,39 @@ const tracks = [
 
 const trackList = document.querySelector("#track-list");
 
+const playerDialog = document.createElement("dialog");
+playerDialog.className = "player-dialog";
+playerDialog.innerHTML = `
+  <div class="player-dialog-header">
+    <div>
+      <p class="eyebrow">Reprodutor do Google Drive</p>
+      <h2></h2>
+    </div>
+    <button class="close-player" type="button" aria-label="Fechar player">&times;</button>
+  </div>
+  <iframe title="Player de música" allow="autoplay" allowfullscreen></iframe>
+`;
+document.body.appendChild(playerDialog);
+
+const dialogTitle = playerDialog.querySelector("h2");
+const dialogFrame = playerDialog.querySelector("iframe");
+
+function openPlayer(title, id) {
+  dialogTitle.textContent = title;
+  dialogFrame.src = `https://drive.google.com/file/d/${id}/preview`;
+  playerDialog.showModal();
+}
+
+function closePlayer() {
+  playerDialog.close();
+  dialogFrame.src = "about:blank";
+}
+
+playerDialog.querySelector(".close-player").addEventListener("click", closePlayer);
+playerDialog.addEventListener("click", (event) => {
+  if (event.target === playerDialog) closePlayer();
+});
+
 tracks.forEach(([title, id], index) => {
   const item = document.createElement("li");
   item.className = "track";
@@ -23,19 +56,15 @@ tracks.forEach(([title, id], index) => {
       <div class="track-title">${title}</div>
       <a class="drive-link" href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener">abrir no Google Drive</a>
     </div>
-    <audio controls preload="none" src="https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t"></audio>
+    <button class="listen-button" type="button" aria-label="Ouvir ${title}">ouvir</button>
   `;
   trackList.appendChild(item);
 
-  const audio = item.querySelector("audio");
-  audio.addEventListener("play", () => {
-    document.querySelectorAll("audio").forEach((otherAudio) => {
-      if (otherAudio !== audio) otherAudio.pause();
-    });
+  item.querySelector(".listen-button").addEventListener("click", () => {
     document.querySelectorAll(".track").forEach((otherItem) => otherItem.classList.remove("is-playing"));
     item.classList.add("is-playing");
+    openPlayer(title, id);
   });
-  audio.addEventListener("pause", () => item.classList.remove("is-playing"));
 });
 
 document.querySelector("#track-count").textContent = tracks.length;
