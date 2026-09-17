@@ -23,28 +23,10 @@
 
 .reader-action:hover { background: var(--gold-light); }
 
-.book-frame {
-  position: relative;
-  width: min(100%, 820px);
-  min-height: min(760px, 72vh);
-  border: 1px solid var(--line);
-  background: #090806;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, .38);
-}
-
-.book-frame iframe {
-  display: block;
-  width: 100%;
-  height: min(760px, 72vh);
-  border: 0;
-}
-
 @media (max-width: 820px) {
   .book-reader { margin-top: 38px; }
-  .book-frame, .book-frame iframe { min-height: 620px; height: 620px; }
 }
 
 @media (max-width: 520px) {
   .book-reader { margin-top: 30px; }
-  .book-frame, .book-frame iframe { min-height: 520px; height: 520px; }
 }
