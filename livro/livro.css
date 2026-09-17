@@ -1,18 +1,5 @@
 .book-page { min-height: calc(100vh - 64px); }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 28px;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: .16em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color .2s ease;
-}
-
-.back-link:hover { color: var(--gold-light); }
-
 .book-reader {
   display: flex;
   flex-direction: column;
@@ -52,27 +39,12 @@
   border: 0;
 }
 
-.book-missing {
-  position: absolute;
-  inset: 50% 24px auto;
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-  text-align: center;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.book-missing strong { color: var(--gold-light); font-weight: 600; }
-
 @media (max-width: 820px) {
   .book-reader { margin-top: 38px; }
   .book-frame, .book-frame iframe { min-height: 620px; height: 620px; }
 }
 
 @media (max-width: 520px) {
-  .back-link { margin-bottom: 22px; }
   .book-reader { margin-top: 30px; }
   .book-frame, .book-frame iframe { min-height: 520px; height: 520px; }
 }
